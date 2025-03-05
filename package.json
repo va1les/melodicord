@@ -1,6 +1,6 @@
 {
   "name": "melodicord",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A powerful music library for Discord bots with support for Spotify and YouTube.",
   "main": "index.js",
   "types": "types/index.d.ts",

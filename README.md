@@ -33,31 +33,31 @@ const player = new Player(client, {
 client.player = player;
 
 // Add event listeners for various events
-client.player.on('songStarted', (song) => {
+client.player.on('songStarted', (queue, song) => {
     console.log(`Now playing: ${song.title}`);
 });
 
-client.player.on('songEnded', (song) => {
+client.player.on('songEnded', (queue, song) => {
     console.log(`Song ended: ${song.title}`);
 });
 
-client.player.on('songAdd', (song) => {
+client.player.on('songAdd', (queue, song) => {
     console.log(`Added song to queue: ${song.title}`);
 });
 
-client.player.on('playlistAdd', (playlist) => {
+client.player.on('playlistAdd', (queue, playlist) => {
     console.log(`Added playlist to queue: ${playlist.title}`);
 });
 
-client.player.on('channelEmpty', () => {
+client.player.on('channelEmpty', (queue) => {
     console.log('No users in the voice channel, leaving...');
 });
 
-client.player.on('clientDisconnect', () => {
+client.player.on('clientDisconnect', (queue) => {
     console.log('Client disconnected from the voice channel');
 });
 
-client.player.on('queueEnd', () => {
+client.player.on('queueEnd', (queue) => {
     console.log('Queue has ended');
 });
 ```

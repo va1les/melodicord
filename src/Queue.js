@@ -38,6 +38,7 @@ class Queue {
     setupPlayerEvents() {
         this.player.on(AudioPlayerStatus.Playing, () => {
             const track = this.current();
+            if(track?.seeked) return track.seeked = false
 
             if (track) {
                 track.set_start();
@@ -274,7 +275,7 @@ class Queue {
                 };
             })
             .on('end', () => {
-                console.log('FFmpeg stream ended.');
+                // console.log('FFmpeg stream ended.');
             })
             .pipe();
 
@@ -286,6 +287,7 @@ class Queue {
 
         this.currentResource = resource;
         this.isPlaying = true;
+        this.current()._data.seeked = true;
 
         this.player.play(resource);
         this.connection.subscribe(this.player);

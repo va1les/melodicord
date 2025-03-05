@@ -13,6 +13,7 @@ class Track {
         this._data = {
             start: null,
             end: null,
+            seeked: false,
         };
     };
 

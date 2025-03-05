@@ -42,6 +42,7 @@ class Player extends EventEmitter {
     };
 
     createQueue(guildId, options = {}) {
+        if (this.getQueue(guildId)) return this.getQueue(guildId);
         const queue = new Queue(guildId, this, options);
         this.queues.set(guildId, queue);
         return queue;
